@@ -1,0 +1,503 @@
+local player = game.Players.LocalPlayer
+local mouse = player:GetMouse()
+local gui = Instance.new("ScreenGui",player.PlayerGui)
+local act = false
+local act2 = false
+local act3 = false
+local act4 = false
+local act5 = false
+local act6 = false
+local act6temp = false
+local frame = Instance.new("Frame",gui)
+frame.BackgroundTransparency = 0.2
+frame.BackgroundColor3 = Color3.fromRGB(255,255,255)
+frame.BorderColor3 = Color3.fromRGB(155,155,155)
+frame.BorderSizePixel = 3
+frame.Position = UDim2.new(0.3,0,.3,0)
+frame.Size = UDim2.new(.25,0,.65,0)
+frame.Active = true
+frame.Draggable = true
+frame.ClipsDescendants = false
+local textl = Instance.new("TextLabel",frame)
+textl.BackgroundTransparency = 0
+textl.BackgroundColor3 = Color3.fromRGB(255,155,55)
+textl.BorderColor3 = Color3.fromRGB(155,55,0)
+textl.BorderSizePixel = 3
+textl.Position = UDim2.new(0.05,0,.025,0)
+textl.Size = UDim2.new(.4,0,.075,0)
+textl.TextScaled = true
+textl.TextColor3 = Color3.fromRGB(255,255,255)
+textl.Text = "类型1"
+textl.Font = "Highway"
+local text2 = Instance.new("TextLabel",frame)
+text2.BackgroundTransparency = 0
+text2.BackgroundColor3 = Color3.fromRGB(255,155,55)
+text2.BorderColor3 = Color3.fromRGB(155,55,0)
+text2.BorderSizePixel = 3
+text2.Position = UDim2.new(0.55,0,.025,0)
+text2.Size = UDim2.new(.4,0,.075,0)
+text2.TextScaled = true
+text2.TextColor3 = Color3.fromRGB(255,255,255)
+text2.Text = "类型2"
+text2.Font = "Highway"
+local textbox = Instance.new("TextBox",frame)
+textbox.BackgroundTransparency = 0
+textbox.BackgroundColor3 = Color3.fromRGB(55,155,255)
+textbox.BorderColor3 = Color3.fromRGB(0,55,155)
+textbox.BorderSizePixel = 3
+textbox.Position = UDim2.new(0.05,0,.125,0)
+textbox.Size = UDim2.new(.4,0,.075,0)
+textbox.TextScaled = true
+textbox.TextColor3 = Color3.fromRGB(255,255,255)
+textbox.Font = "Highway"
+textbox.Text = "礼物"
+textbox.PlaceholderText = "Optional"
+local textbox2 = Instance.new("TextBox",frame)
+textbox2.BackgroundTransparency = 0
+textbox2.BackgroundColor3 = Color3.fromRGB(55,155,255)
+textbox2.BorderColor3 = Color3.fromRGB(0,55,155)
+textbox2.BorderSizePixel = 3
+textbox2.Position = UDim2.new(0.55,0,.125,0)
+textbox2.Size = UDim2.new(.4,0,.075,0)
+textbox2.TextScaled = true
+textbox2.TextColor3 = Color3.fromRGB(255,255,255)
+textbox2.Font = "Highway"
+textbox2.Text = ""
+textbox2.PlaceholderText = "Optional"
+local textbox3 = Instance.new("TextBox",frame)
+textbox3.BackgroundTransparency = 0
+textbox3.BackgroundColor3 = Color3.fromRGB(55,155,255)
+textbox3.BorderColor3 = Color3.fromRGB(0,55,155)
+textbox3.BorderSizePixel = 3
+textbox3.Position = UDim2.new(0.05,0,.9,0)
+textbox3.Size = UDim2.new(.2,0,.075,0)
+textbox3.TextScaled = true
+textbox3.TextColor3 = Color3.fromRGB(255,255,255)
+textbox3.Font = "Highway"
+textbox3.Text = ""
+textbox3.PlaceholderText = "L/R"
+local textbox4 = Instance.new("TextBox",frame)
+textbox4.BackgroundTransparency = 0
+textbox4.BackgroundColor3 = Color3.fromRGB(55,155,255)
+textbox4.BorderColor3 = Color3.fromRGB(0,55,155)
+textbox4.BorderSizePixel = 3
+textbox4.Position = UDim2.new(0.3,0,.9,0)
+textbox4.Size = UDim2.new(.2,0,.075,0)
+textbox4.TextScaled = true
+textbox4.TextColor3 = Color3.fromRGB(255,255,255)
+textbox4.Font = "Highway"
+textbox4.Text = ""
+textbox4.PlaceholderText = "U/D"
+local textbutc = Instance.new("TextButton",frame)
+textbutc.BackgroundTransparency = 0
+textbutc.BackgroundColor3 = Color3.fromRGB(255,55,55)
+textbutc.BorderColor3 = Color3.fromRGB(155,0,0)
+textbutc.BorderSizePixel = 3
+textbutc.Position = UDim2.new(0.925,0,0,0)
+textbutc.Size = UDim2.new(.075,0,.075,0)
+textbutc.SizeConstraint = "RelativeXX"
+textbutc.TextScaled = true
+textbutc.TextColor3 = Color3.fromRGB(255,255,255)
+textbutc.Font = "Highway"
+textbutc.Text = "X"
+textbutc.MouseButton1Click:Connect(function()
+gui:Remove()
+end)
+local textbut22 = Instance.new("TextButton",frame)
+textbut22.BackgroundTransparency = 0
+textbut22.BackgroundColor3 = Color3.fromRGB(55,255,155)
+textbut22.BorderColor3 = Color3.fromRGB(0,155,55)
+textbut22.BorderSizePixel = 3
+textbut22.Position = UDim2.new(0.55,0,.35,0)
+textbut22.Size = UDim2.new(.4,0,.075,0)
+textbut22.TextScaled = true
+textbut22.TextColor3 = Color3.fromRGB(255,255,255)
+textbut22.Font = "Highway"
+textbut22.Text = "蛋"
+textbut22.MouseButton1Click:Connect(function()
+for i = 1,6 do
+for a = 1,6 do
+local Event = game:GetService("ReplicatedStorage").Events.ConstructHiveCellFromEgg
+Event:InvokeServer(i,a,"Diamond",.001)
+Event:InvokeServer(i,a,"Gold",.001)
+Event:InvokeServer(i,a,"Basic",.001)
+end
+end
+end)
+local textbut = Instance.new("TextButton",frame)
+textbut.BackgroundTransparency = 0
+textbut.BackgroundColor3 = Color3.fromRGB(55,255,155)
+textbut.BorderColor3 = Color3.fromRGB(0,155,55)
+textbut.BorderSizePixel = 3
+textbut.Position = UDim2.new(0.05,0,.35,0)
+textbut.Size = UDim2.new(.4,0,.075,0)
+textbut.TextScaled = true
+textbut.TextColor3 = Color3.fromRGB(255,255,255)
+textbut.Font = "Highway"
+textbut.Text = "果冻"
+textbut.MouseButton1Click:Connect(function()
+if act then
+act = false
+textbut.Text = "果冻"
+textbut.BackgroundColor3 = Color3.fromRGB(55,255,155)
+textbut.BorderColor3 = Color3.fromRGB(0,155,55)
+else
+textbut.Text = "停止"
+textbut.BackgroundColor3 = Color3.fromRGB(255,55,55)
+textbut.BorderColor3 = Color3.fromRGB(155,0,0)
+act = true
+local lr = tonumber(textbox3.Text)
+local ud = tonumber(textbox4.Text)
+local TypeOfBee = textbox.Text
+local TypeOfBee2 = textbox2.Text
+repeat
+game:GetService("ReplicatedStorage").Events.ConstructHiveCellFromEgg:InvokeServer(lr, ud, "RoyalJelly", 0.001)
+until string.find(game.Players.LocalPlayer.PlayerGui.ScreenGui.BeePopUp.TypeName.Text,TypeOfBee) and string.find(game.Players.LocalPlayer.PlayerGui.ScreenGui.BeePopUp.ColorAndRarity.Text,TypeOfBee2) or string.find(game.Players.LocalPlayer.PlayerGui.ScreenGui.BeePopUp.ColorAndRarity.Text,TypeOfBee) and string.find(game.Players.LocalPlayer.PlayerGui.ScreenGui.BeePopUp.TypeName.Text,TypeOfBee2) or string.find(game.Players.LocalPlayer.PlayerGui.ScreenGui.BeePopUp.TypeName.Text,TypeOfBee) and string.find(game.Players.LocalPlayer.PlayerGui.ScreenGui.BeePopUp.TypeName.Text,TypeOfBee2) or string.find(game.Players.LocalPlayer.PlayerGui.ScreenGui.BeePopUp.ColorAndRarity.Text,TypeOfBee) and string.find(game.Players.LocalPlayer.PlayerGui.ScreenGui.BeePopUp.ColorAndRarity.Text,TypeOfBee2) or not act
+end
+end)
+local textbutf = Instance.new("TextButton",frame)
+textbutf.BackgroundTransparency = 0
+textbutf.BackgroundColor3 = Color3.fromRGB(55,255,155)
+textbutf.BorderColor3 = Color3.fromRGB(0,155,55)
+textbutf.BorderSizePixel = 3
+textbutf.Position = UDim2.new(.05,0,.25,0)
+textbutf.Size = UDim2.new(.4,0,.075,0)
+textbutf.TextScaled = true
+textbutf.TextColor3 = Color3.fromRGB(255,255,255)
+textbutf.Font = "Highway"
+textbutf.Text = "收集"
+textbutf.MouseButton1Click:Connect(function()
+if act2 then
+act2 = false
+textbutf.Text = "收集"
+textbutf.BackgroundColor3 = Color3.fromRGB(55,255,155)
+textbutf.BorderColor3 = Color3.fromRGB(0,155,55)
+else
+act2 = true
+textbutf.Text = "停止"
+textbutf.BackgroundColor3 = Color3.fromRGB(255,55,55)
+textbutf.BorderColor3 = Color3.fromRGB(155,0,0)
+local krispy = player.Character.HumanoidRootPart.CFrame
+repeat
+for k,v in pairs(workspace.TreasureCollectibles:GetChildren()) do
+player.Character.HumanoidRootPart.CFrame = v.CFrame
+wait(.1)
+end
+wait(1)
+until not act2
+player.Character.HumanoidRootPart.CFrame = krispy
+end
+end)
+local textbutevictegg = Instance.new("TextButton",frame)
+textbutevictegg.BackgroundTransparency = 0
+textbutevictegg.BackgroundColor3 = Color3.fromRGB(55,255,155)
+textbutevictegg.BorderColor3 = Color3.fromRGB(0,155,55)
+textbutevictegg.BorderSizePixel = 3
+textbutevictegg.Position = UDim2.new(0.55,0,.25,0)
+textbutevictegg.Size = UDim2.new(.4,0,.075,0)
+textbutevictegg.TextScaled = true
+textbutevictegg.TextColor3 = Color3.fromRGB(255,255,255)
+textbutevictegg.Font = "Highway"
+textbutevictegg.Text = "Evict/Egg"
+textbutevictegg.MouseButton1Click:Connect(function()
+if act3 then
+act3 = false
+textbutevictegg.Text = "驱逐/蛋"
+textbutevictegg.BackgroundColor3 = Color3.fromRGB(55,255,155)
+textbutevictegg.BorderColor3 = Color3.fromRGB(0,155,55)
+else
+textbutevictegg.Text = "停止"
+textbutevictegg.BackgroundColor3 = Color3.fromRGB(255,55,55)
+textbutevictegg.BorderColor3 = Color3.fromRGB(155,0,0)
+act3 = true
+local lr = tonumber(textbox3.Text)
+local ud = tonumber(textbox4.Text)
+local TypeOfBee = textbox.Text
+local TypeOfBee2 = textbox2.Text
+repeat
+game:GetService("ReplicatedStorage").Events.ConstructHiveCellFromEgg:InvokeServer(lr, ud, "Eviction", 0.001)
+game:GetService("ReplicatedStorage").Events.ConstructHiveCellFromEgg:InvokeServer(lr, ud, "Basic", 0.001)
+until string.find(game.Players.LocalPlayer.PlayerGui.ScreenGui.BeePopUp.TypeName.Text,TypeOfBee) and string.find(game.Players.LocalPlayer.PlayerGui.ScreenGui.BeePopUp.ColorAndRarity.Text,TypeOfBee2) or string.find(game.Players.LocalPlayer.PlayerGui.ScreenGui.BeePopUp.ColorAndRarity.Text,TypeOfBee) and string.find(game.Players.LocalPlayer.PlayerGui.ScreenGui.BeePopUp.TypeName.Text,TypeOfBee2) or string.find(game.Players.LocalPlayer.PlayerGui.ScreenGui.BeePopUp.TypeName.Text,TypeOfBee) and string.find(game.Players.LocalPlayer.PlayerGui.ScreenGui.BeePopUp.TypeName.Text,TypeOfBee2) or string.find(game.Players.LocalPlayer.PlayerGui.ScreenGui.BeePopUp.ColorAndRarity.Text,TypeOfBee) and string.find(game.Players.LocalPlayer.PlayerGui.ScreenGui.BeePopUp.ColorAndRarity.Text,TypeOfBee2) or not act3
+end
+end)
+local textbutcctp = Instance.new("TextButton",frame)
+textbutcctp.BackgroundTransparency = 0
+textbutcctp.BackgroundColor3 = Color3.fromRGB(55,255,155)
+textbutcctp.BorderColor3 = Color3.fromRGB(0,155,55)
+textbutcctp.BorderSizePixel = 3
+textbutcctp.Position = UDim2.new(0.55,0,.45,0)
+textbutcctp.Size = UDim2.new(.4,0,.075,0)
+textbutcctp.TextScaled = true
+textbutcctp.TextColor3 = Color3.fromRGB(255,255,255)
+textbutcctp.Font = "Highway"
+textbutcctp.Text = "Ctrl+点击传送"
+textbutcctp.MouseButton1Click:Connect(function()
+local Plr = game:GetService("Players").LocalPlayer
+local Mouse = Plr:GetMouse()
+Mouse.Button1Down:connect(function()
+if not game:GetService("UserInputService"):IsKeyDown(Enum.KeyCode.LeftControl) then return end
+Plr.Character.HumanoidRootPart.CFrame = Mouse.Hit * CFrame.new(0,2,0)
+end)
+end)
+local texthoneyu = Instance.new("TextButton",frame)
+texthoneyu.BackgroundTransparency = 0
+texthoneyu.BackgroundColor3 = Color3.fromRGB(55,255,155)
+texthoneyu.BorderColor3 = Color3.fromRGB(0,155,55)
+texthoneyu.BorderSizePixel = 3
+texthoneyu.Position = UDim2.new(0.55,0,.55,0)
+texthoneyu.Size = UDim2.new(.4,0,.075,0)
+texthoneyu.TextScaled = true
+texthoneyu.TextColor3 = Color3.fromRGB(255,255,255)
+texthoneyu.Font = "Highway"
+texthoneyu.Text = "出售蜂蜜"
+texthoneyu.MouseButton1Click:Connect(function()
+local krispy = player.Character.HumanoidRootPart
+local bigboi = krispy.CFrame
+local biqqyboi = workspace.FlowerZones["Mountain Top Field"].CFrame
+for k,v in pairs(workspace.HivePlatforms:GetChildren()) do
+	if v.Hive.Value == player.Honeycomb.Value then
+		krispy.CFrame = v.Circle.CFrame * CFrame.new(0,3,0)
+	end
+	wait()
+end
+krispy.Anchored = true
+wait(2)
+game:GetService("ReplicatedStorage").Events.PlayerHiveCommand:FireServer("ToggleHoneyMaking")
+repeat wait(.1) until player.leaderstats.Pollen.Value <= 0
+wait(10)
+krispy.Anchored = false
+wait(10)
+krispy.Anchored = false
+krispy.CFrame = bigboi
+end)
+local textpollen = Instance.new("TextButton",frame)
+textpollen.BackgroundTransparency = 0
+textpollen.BackgroundColor3 = Color3.fromRGB(55,255,155)
+textpollen.BorderColor3 = Color3.fromRGB(0,155,55)
+textpollen.BorderSizePixel = 3
+textpollen.Position = UDim2.new(0.05,0,.55,0)
+textpollen.Size = UDim2.new(.4,0,.075,0)
+textpollen.TextScaled = true
+textpollen.TextColor3 = Color3.fromRGB(255,255,255)
+textpollen.Font = "Highway"
+textpollen.Text = "收集票"
+textpollen.MouseButton1Click:Connect(function()
+if act4 then
+act4 = false
+textpollen.Text = "收集票"
+textpollen.BackgroundColor3 = Color3.fromRGB(55,255,155)
+textpollen.BorderColor3 = Color3.fromRGB(0,155,55)
+else
+act4 = true
+textpollen.Text = "停止"
+textpollen.BackgroundColor3 = Color3.fromRGB(255,55,55)
+textpollen.BorderColor3 = Color3.fromRGB(155,0,0)
+local krispy = player.Character.HumanoidRootPart
+repeat
+	local bigboi = krispy.CFrame
+	for k,v in pairs(workspace.Collectibles:GetChildren()) do
+		if v.Name == player.Name and not v:FindFirstChild("HeyBigBoi") or tonumber((v.Position - krispy.Position).magnitude) <= 35 and not v:FindFirstChild("HeyBigBoi") then
+			krispy.CFrame = v.CFrame
+			local intvalue = Instance.new("IntValue",v)
+			intvalue.Name = "HeyBigBoi"
+			wait(.05)
+		end
+	end
+	wait(.1)
+	krispy.CFrame = bigboi
+until not act4
+end
+end)
+local textspam = Instance.new("TextButton",frame)
+textspam.BackgroundTransparency = 0
+textspam.BackgroundColor3 = Color3.fromRGB(55,255,155)
+textspam.BorderColor3 = Color3.fromRGB(0,155,55)
+textspam.BorderSizePixel = 3
+textspam.Position = UDim2.new(0.05,0,.65,0)
+textspam.Size = UDim2.new(.4,0,.075,0)
+textspam.TextScaled = true
+textspam.TextColor3 = Color3.fromRGB(255,255,255)
+textspam.Font = "Highway"
+textspam.Text = "自动点击"
+textspam.MouseButton1Click:Connect(function()
+if act5 then
+act5 = false
+textspam.Text = "自动点击"
+textspam.BackgroundColor3 = Color3.fromRGB(55,255,155)
+textspam.BorderColor3 = Color3.fromRGB(0,155,55)
+else
+act5 = true
+textspam.Text = "停止"
+textspam.BackgroundColor3 = Color3.fromRGB(255,55,55)
+textspam.BorderColor3 = Color3.fromRGB(155,0,0)
+local krispy = player.Character.HumanoidRootPart
+	local bigboi = krispy.CFrame
+	for k,v in pairs(workspace[player.Name]:GetChildren()) do
+		if v.ClassName == "Tool" then
+			repeat
+			v.ClickEvent:FireServer()
+			wait(.1)
+			until not act5
+		end
+	end
+end
+end)
+local function JerMan(krispy,biqqyboi)
+	local jimmy = coroutine.wrap(function()
+		repeat
+		for k,v in pairs(workspace.Collectibles:GetChildren()) do
+			if v.Name == player.Name and not v:FindFirstChild("HeyBigBoi") or tonumber((v.Position - krispy.Position).magnitude) <= 55 and not v:FindFirstChild("HeyBigBoi") then
+				krispy.CFrame = v.CFrame
+				local intvalue = Instance.new("IntValue",v)
+				intvalue.Name = "HeyBigBoi"
+				wait(.05)
+			end
+		end
+		wait(.1)
+		local a1 = math.random(-15,15)
+		local a2 = math.random(-15,15)
+		krispy.CFrame = biqqyboi * CFrame.new(a1,0,a2)
+		until not act6 or act6temp
+	end)
+	local jimmy2 = coroutine.wrap(function()
+		for k,v in pairs(workspace[player.Name]:GetChildren()) do
+			if v.ClassName == "Tool" then
+				repeat
+				v.ClickEvent:FireServer()
+				wait(.1)
+				until not act6 or act6temp
+			end
+		end
+	end)
+	jimmy()
+	jimmy2()
+end
+local textauto = Instance.new("TextButton",frame)
+textauto.BackgroundTransparency = 0
+textauto.BackgroundColor3 = Color3.fromRGB(55,255,155)
+textauto.BorderColor3 = Color3.fromRGB(0,155,55)
+textauto.BorderSizePixel = 3
+textauto.Position = UDim2.new(0.55,0,.65,0)
+textauto.Size = UDim2.new(.4,0,.075,0)
+textauto.TextScaled = true
+textauto.TextColor3 = Color3.fromRGB(255,255,255)
+textauto.Font = "Highway"
+textauto.Text = "自动收集"
+textauto.MouseButton1Click:Connect(function()
+if act6 then
+act6 = false
+textauto.Text = "自动收集"
+textauto.BackgroundColor3 = Color3.fromRGB(55,255,155)
+textauto.BorderColor3 = Color3.fromRGB(0,155,55)
+else
+act6 = true
+textauto.Text = "停止"
+textauto.BackgroundColor3 = Color3.fromRGB(255,55,55)
+textauto.BorderColor3 = Color3.fromRGB(155,0,0)
+local krispy = player.Character.HumanoidRootPart
+local bigboi = krispy.CFrame
+local biqqyboi = workspace.FlowerZones["Mountain Top Field"].CFrame
+krispy.CFrame = biqqyboi
+	local jimmy = coroutine.wrap(function()
+		repeat
+		for k,v in pairs(workspace.Collectibles:GetChildren()) do
+			if v.Name == player.Name and not v:FindFirstChild("HeyBigBoi") or tonumber((v.Position - krispy.Position).magnitude) <= 55 and not v:FindFirstChild("HeyBigBoi") then
+				krispy.CFrame = v.CFrame
+				local intvalue = Instance.new("IntValue",v)
+				intvalue.Name = "HeyBigBoi"
+				wait(.05)
+			end
+		end
+		wait(.1)
+		local a1 = math.random(-15,15)
+		local a2 = math.random(-15,15)
+		krispy.CFrame = biqqyboi * CFrame.new(a1,0,a2)
+		until not act6 or act6temp
+	end)
+	local jimmy2 = coroutine.wrap(function()
+		for k,v in pairs(workspace[player.Name]:GetChildren()) do
+			if v.ClassName == "Tool" then
+				repeat
+				v.ClickEvent:FireServer()
+				wait(.1)
+				until not act6 or act6temp
+			end
+		end
+	end)
+	local jimmy3 = coroutine.wrap(function()
+		repeat
+			for k,v in pairs(workspace[player.Name]:GetChildren()) do
+				if v:FindFirstChild("Display") then
+					if v.Display.Gui.ProgressBar.Size == v.Display.Gui.RedBar.Size or v.Display.Gui.ProgressLabel == player.leaderstats.Pollen.Value.."/"..player.leaderstats.Pollen.Value then
+						act6temp = true
+						local biqqyboi = workspace.FlowerZones["Mountain Top Field"].CFrame
+						for k,v in pairs(workspace.HivePlatforms:GetChildren()) do
+							if v.Hive.Value == player.Honeycomb.Value then
+								krispy.CFrame = v.Circle.CFrame * CFrame.new(0,3,0)
+							end
+							wait()
+						end
+						krispy.Anchored = true
+						wait(2)
+						game:GetService("ReplicatedStorage").Events.PlayerHiveCommand:FireServer("ToggleHoneyMaking")
+						repeat wait(.1) until player.leaderstats.Pollen.Value <= 0
+						wait(10)
+						krispy.Anchored = false
+						local a1 = math.random(-15,15)
+						local a2 = math.random(-15,15)
+						krispy.CFrame = biqqyboi * CFrame.new(a1,0,a2)
+						JerMan(krispy,biqqyboi)
+						act6temp = false
+					end
+				end
+				wait()
+			end
+			wait(1)
+		until not act6
+	end)
+	jimmy()
+	jimmy2()
+	jimmy3()
+end
+end)
+local textbutea = Instance.new("TextButton",frame)
+textbutea.BackgroundTransparency = 0
+textbutea.BackgroundColor3 = Color3.fromRGB(55,255,155)
+textbutea.BorderColor3 = Color3.fromRGB(0,155,55)
+textbutea.BorderSizePixel = 3
+textbutea.Position = UDim2.new(0.05,0,.45,0)
+textbutea.Size = UDim2.new(.4,0,.075,0)
+textbutea.TextScaled = true
+textbutea.TextColor3 = Color3.fromRGB(255,255,255)
+textbutea.Font = "Highway"
+textbutea.Text = "驱逐全部人（你以为你是艾伦?）"
+textbutea.MouseButton1Click:Connect(function()
+for i = 1,6 do
+for a = 1,6 do
+game:GetService("ReplicatedStorage").Events.ConstructHiveCellFromEgg:InvokeServer(i, a, "Eviction", 0.001)
+end
+end
+end)
+local uiscaletext = Instance.new("TextBox",frame)
+uiscaletext.BackgroundTransparency = 0
+uiscaletext.BackgroundColor3 = Color3.fromRGB(55,155,255)
+uiscaletext.BorderColor3 = Color3.fromRGB(0,55,155)
+uiscaletext.BorderSizePixel = 3
+uiscaletext.Position = UDim2.new(0.75,0,.9,0)
+uiscaletext.Size = UDim2.new(.2,0,.075,0)
+uiscaletext.TextScaled = true
+uiscaletext.TextColor3 = Color3.fromRGB(255,255,255)
+uiscaletext.Font = "Highway"
+uiscaletext.Text = ".75"
+uiscaletext.PlaceholderText = "UIScale"
+local ui = Instance.new("UIScale",frame)
+ui.Scale = .75
+uiscaletext.Changed:Connect(function()
+if uiscaletext.Text == "" then
+elseif tonumber(uiscaletext.Text) > 1.5 then
+ui.Scale = 1.5
+else
+ui.Scale = tonumber(uiscaletext.Text)
+end
+end)
+uiscaletext.Text = ".75"
